@@ -15,6 +15,7 @@
     "grunt": "^1.0.2",
     "grunt-angular-templates": "^1.1.0",
     "grunt-browser-sync": "^2.2.0",
+    "grunt-cli": "^1.2.0",
     "grunt-contrib-concat": "^1.0.1",
     "grunt-contrib-copy": "^1.0.0",
     "grunt-contrib-cssmin": "^2.2.1",
