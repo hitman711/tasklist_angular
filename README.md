@@ -16,10 +16,14 @@
 
 * Install project dev depenancies
 	
-	npm install --only=dev
+	sudo npm install --only=dev
 
 * run grunt command to start local server where web page serve
 
 	grunt
+
+	**NONTE** if sass.js error display on grunt run then perform following action which update nodejs dependancies for sass
+
+	sudo npm rebuild node-sass
 
 * To create build run `grunt prod` and index file without any changes. It will create build folder with customize css, js lib files.
