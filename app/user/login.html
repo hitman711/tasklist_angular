@@ -1,0 +1,20 @@
+
+<div class="form-center">
+	<form class="form-signin" ng-submit="vm.signIn()">
+	  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+	  <label for="username" class="sr-only">Username</label>
+	  <input type="text" id="username" class="form-control" placeholder="username" required="" autofocus="" ng-model="vm.sign_in.username">
+	  <small ng-if="vm.field_error" class="form-text text-muted">{{vm.sign_in_error.username}}</small>
+	  <label for="inputPassword" class="sr-only">Password</label>
+	  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" ng-model="vm.sign_in.password">
+	  <small small ng-if="vm.field_error" class="form-text text-muted">{{vm.sign_in_error.password}}</small>
+	  <div class="checkbox mb-3">
+	  </div>
+	  <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+	</form>
+</div>
+<h4 class="text-center">
+	<a ui-sref="signup">Registration</a>
+</h4>
+	
+  

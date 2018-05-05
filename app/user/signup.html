@@ -1,0 +1,27 @@
+<div class="form-center">
+  <form class="form-signuo" ng-submit="vm.registration()">
+    <h1 class="h3 mb-3 font-weight-normal">Sign Up</h1>
+    <label for="first_name" class="sr-only">First Name</label>
+    <input type="text" id="first_name" class="form-control" placeholder="First Name" required="" autofocus="" ng-model="vm.sign_up.first_name">
+    <small ng-if="vm.field_error" class="form-text text-muted">{{vm.sign_up_error.first_name}}</small>
+    <label for="last_name" class="sr-only">Last Name</label>
+    <input type="text" id="last_name" class="form-control" placeholder="Last Name" required="" autofocus="" ng-model="vm.sign_up.last_name">
+    <small ng-if="vm.field_error" class="form-text text-muted">{{vm.sign_up_error.last_name}}</small>
+    <label for="email" class="sr-only">Email Address</label>
+    <input type="email" id="email" class="form-control" placeholder="Email Address" required="" autofocus="" ng-model="vm.sign_up.email">  
+    <small ng-if="vm.field_error" class="form-text text-muted">{{vm.sign_up_error.email}}</small>
+    <label for="username" class="sr-only">Username</label>
+    <input type="text" id="username" class="form-control" placeholder="Username" required="" autofocus="" ng-model="vm.sign_up.username">
+    <small ng-if="vm.field_error" class="form-text text-muted">{{vm.sign_up_error.username}}</small>
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" ng-model="vm.sign_up.password">
+    <small ng-if="vm.field_error" class="form-text text-muted">{{vm.sign_up_error.password}}</small>
+    <div class="checkbox mb-3">
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+  </form>
+</div>
+<h4 class="text-center">
+  <a ui-sref="login">Sign In</a>
+</h4>
+  

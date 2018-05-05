@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="origin">
+    <head>
+        <title>Origin Task List</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+        <!-- css dependencies -->
+        <link rel="stylesheet" href="lib/app.lib.css">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="app/css/app.css">
+
+        <!-- js libraries -->
+        <script src="lib/app.lib.js"></script>
+
+        <!-- Custom JS files -->
+        <script src="app/js/app.js"></script>
+
+        <!--  required for grunt-processhtml -->
+        <!-- adding templates cache output to refer the template after all the app JS files loaded -->
+        <script src="app.templates.js"></script>
+        <!--  required for grunt-processhtml -->
+    </head>
+    <body class="text-center" data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+        <toaster-container toaster-options="{
+            'time-out': 1500, 
+            'extendedTimeOut': 1000, 
+            'close-button':true,
+            'showMethod': 'slideDown', 
+            'preventDuplicates': true,
+            'hideMethod': 'slideUp', 
+            'progressBar': true,}"></toaster-container>
+        <ui-view></ui-view>
+    </body>
+</html>
