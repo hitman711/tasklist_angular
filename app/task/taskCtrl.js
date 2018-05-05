@@ -5,7 +5,7 @@
 
 	"use strict";
 
-	function taskCtrl($state, $window, $filter, toaster, DOMAIN, TASK_LIST, TASK_RETRIEVE, serviceApi){
+	function taskCtrl($state, $window, $filter, toaster, DOMAIN, TASK_LIST, TASK_RETRIEVE, TASK_STATUS, serviceApi){
 		/* 
 		task_list : List of all tasks
 		task_retrieve : Specific task object
@@ -33,6 +33,8 @@
 		vm.limit = "10";
 		vm.email = $window.localStorage.getItem('email');
 		vm.full_name = $window.localStorage.getItem('full_name');
+		vm.Done = 'Done'
+		vm.Undone = 'Undone'
 
 		/* Function to get  task list data */
 		vm.TaskList = function(){
@@ -187,9 +189,12 @@
 		}
 
 
-		vm.TaskStatus = function(task_id){
-			var task_retrieve = TASK_RETRIEVE.replace('{task_id}', task_id.toString());
-			serviceApi.patchData(DOMAIN+task_retrieve, vm.task_status, true)
+		vm.TaskStatus = function(task_id, task_status){
+			var task_retrieve = TASK_STATUS.replace('{task_id}', task_id.toString());
+			var data = {
+				'task_status': task_status
+			}
+			serviceApi.putData(DOMAIN+task_retrieve+'', data, true)
 				.then(function(response){
 					vm.TaskList();
 				}, function(response){
@@ -205,6 +210,6 @@
 	}
 
 	angular.module('origin').controller(
-		'taskCtrl', ['$state', '$window', '$filter', 'toaster', 'DOMAIN', 'TASK_LIST', 'TASK_RETRIEVE', 'serviceApi', taskCtrl]);
+		'taskCtrl', ['$state', '$window', '$filter', 'toaster', 'DOMAIN', 'TASK_LIST', 'TASK_RETRIEVE', 'TASK_STATUS', 'serviceApi', taskCtrl]);
 
 })(window.angular);

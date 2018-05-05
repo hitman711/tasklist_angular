@@ -91,10 +91,20 @@ angular.module('origin').run(['$templateCache', function($templateCache) {
     "                  </button>\n" +
     "                </p>\n" +
     "                <p data-placement=\"top\" data-toggle=\"tooltip\" title=\"History\" class=\"d-inline-block\">\n" +
+    "                  <button ng-if=\"task.task_status == vm.Done\" class=\"btn btn-warning btn-xs\" ng-click=\"vm.TaskStatus(task.id, vm.Undone)\">\n" +
+    "                      Undone\n" +
+    "                  </button>\n" +
+    "                  <button ng-if=\"task.task_status != vm.Done\" class=\"btn btn-success btn-xs\" ng-click=\"vm.TaskStatus(task.id, vm.Done)\">\n" +
+    "                      Done\n" +
+    "                  </button>\n" +
+    "                </p>\n" +
+    "\n" +
+    "                <p data-placement=\"top\" data-toggle=\"tooltip\" title=\"History\" class=\"d-inline-block\">\n" +
     "                  <button class=\"btn btn-info btn-xs\" data-title=\"History\" data-toggle=\"modal\" data-target=\"#history\" ng-click=\"vm.TaskRetrive(task.id)\">\n" +
     "                      History\n" +
     "                  </button>\n" +
     "                </p>\n" +
+    "\n" +
     "              </td>\n" +
     "            </tr>\n" +
     "      </table>\n" +
@@ -124,15 +134,15 @@ angular.module('origin').run(['$templateCache', function($templateCache) {
     "      </div>\n" +
     "      <div class=\"modal-body\">\n" +
     "        <div class=\"form-group\">\n" +
-    "          <input class=\"form-control \" type=\"text\" placeholder=\"Task Name\" ng-model=\"vm.task_retrieve.name\" ng-disabled=\"vm.task_retrieve.user.email != vm.email\">\n" +
+    "          <input class=\"form-control \" type=\"text\" placeholder=\"Task Name\" ng-model=\"vm.task_retrieve.name\" ng-disabled=\"vm.task_retrieve.user.email != vm.email && vm.create==false\">\n" +
     "          <small ng-if=\"vm.field_error\" class=\"form-text text-muted\">{{vm.task_retrieve_error.name}}</small>\n" +
     "        </div>\n" +
     "        <div class=\"form-group\">\n" +
-    "          <textarea rows=\"2\" class=\"form-control\" placeholder=\"Description\" ng-model=\"vm.task_retrieve.description\" ng-disabled=\"vm.task_retrieve.user.email != vm.email\"></textarea>\n" +
+    "          <textarea rows=\"2\" class=\"form-control\" placeholder=\"Description\" ng-model=\"vm.task_retrieve.description\" ng-disabled=\"vm.task_retrieve.user.email != vm.email && vm.create==false\"></textarea>\n" +
     "          <small ng-if=\"vm.field_error\" class=\"form-text text-muted\">{{vm.task_retrieve_error.description}}</small>\n" +
     "        </div>\n" +
     "        <div class=\"form-group\">\n" +
-    "          <select class=\"form-control\" ng-model=\"vm.task_retrieve.task_status\" ng-disabled=\"vm.task_retrieve.user.email != vm.email\">\n" +
+    "          <select class=\"form-control\" ng-model=\"vm.task_retrieve.task_status\" ng-disabled=\"vm.task_retrieve.user.email != vm.email && vm.create==false\">\n" +
     "            <option value=\"Done\">Done</option>\n" +
     "            <option value=\"Undone\">Undone</option>\n" +
     "          </select>\n" +
@@ -193,6 +203,7 @@ angular.module('origin').run(['$templateCache', function($templateCache) {
     "         <thead>\n" +
     "           <tr>\n" +
     "              <td>Action</td>\n" +
+    "              <td>User</td>\n" +
     "              <td>timestamp</td>\n" +
     "              <td>changes</td>\n" +
     "           </tr>\n" +
@@ -200,8 +211,9 @@ angular.module('origin').run(['$templateCache', function($templateCache) {
     "         <tbody>\n" +
     "           <tr ng-repeat=\"history in vm.task_retrieve.history\">\n" +
     "              <td>{{history.action}}</td>\n" +
+    "              <td>{{history.user.get_full_name}}</td>\n" +
     "              <td>{{history.timestamp}}</td>\n" +
-    "              <td>{{history.changes | history_changes }}</td>\n" +
+    "              <td>{{history.changes}}</td>\n" +
     "           </tr>\n" +
     "         </tbody>\n" +
     "       </table>\n" +

@@ -13,6 +13,7 @@ Currently we only store API in constant list
 		.constant('SIGNIN', 'sign-in/')
 		.constant('REGISTRATION', 'registration/')
 		.constant('TASK_LIST', 'task/list/')
-		.constant('TASK_RETRIEVE', 'task/{task_id}/');
+		.constant('TASK_RETRIEVE', 'task/{task_id}/')
+		.constant('TASK_STATUS', 'task/{task_id}/status/');
 
 })(window.angular);
