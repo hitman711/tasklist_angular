@@ -9,6 +9,7 @@
 
 * **nodejs**		(sudo apt-get install nodejs)
 * **npm**		(sudo apt-get install npm)
+* **grunt**		(sudo npm install grunt, sudo npm install grunt-cli)
 
 ## Installation
 
@@ -22,7 +23,7 @@
 
 	grunt
 
-	**NONTE** if sass.js error display on grunt run then perform following action which update nodejs dependancies for sass
+	**NOTE** if sass.js error display on grunt run then perform following action which update nodejs dependancies for sass
 
 	sudo npm rebuild node-sass
 
