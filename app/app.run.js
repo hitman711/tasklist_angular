@@ -1,3 +1,4 @@
+/* State change user validation operation*/
 (function(angular){
 
 	"use strict";

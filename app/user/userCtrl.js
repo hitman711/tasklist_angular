@@ -1,8 +1,18 @@
+/* UserCtrl controller perform Create, Validate and Update operation on sign-in and registration API
+
+*/
 (function(angular){
 
 	"use strict";
 
 	function userCtrl($state, $window, $filter, toaster, DOMAIN, SIGNIN, REGISTRATION, serviceApi){
+		/*
+		sign_in : Login parameters
+		sign_in_error : Login parameter error
+		field_error : Boolean field to display error msg on front end
+		sign_up : Registration parameter
+		sign_up_error : Registration parameter error
+		*/
 		var vm = this;
 		vm.sign_in = {
 			'username':'',
@@ -31,6 +41,7 @@
 			'email':''
 		}
 
+		/* Function to check user details and generate token via sign-in API */
 		vm.signIn = function(){
 			vm.field_error = false;
 			serviceApi.postData(DOMAIN + SIGNIN, vm.sign_in, false)
@@ -55,6 +66,7 @@
 				});
 		}
 
+		/* Function to perform user create operation */
 		vm.registration = function(){
 			serviceApi.postData(DOMAIN + REGISTRATION, vm.sign_up, false)
 				.then(function(response){

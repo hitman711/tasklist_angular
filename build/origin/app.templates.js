@@ -193,7 +193,6 @@ angular.module('origin').run(['$templateCache', function($templateCache) {
     "         <thead>\n" +
     "           <tr>\n" +
     "              <td>Action</td>\n" +
-    "              <td>Actor</td>\n" +
     "              <td>timestamp</td>\n" +
     "              <td>changes</td>\n" +
     "           </tr>\n" +
@@ -201,7 +200,6 @@ angular.module('origin').run(['$templateCache', function($templateCache) {
     "         <tbody>\n" +
     "           <tr ng-repeat=\"history in vm.task_retrieve.history\">\n" +
     "              <td>{{history.action}}</td>\n" +
-    "              <td>{{history.actor}}</td>\n" +
     "              <td>{{history.timestamp}}</td>\n" +
     "              <td>{{history.changes | history_changes }}</td>\n" +
     "           </tr>\n" +

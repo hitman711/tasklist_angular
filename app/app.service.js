@@ -1,3 +1,12 @@
+/* 
+List of services available to perform API opetation 
+
+getData
+postData
+putData
+deleteData
+*/
+
 (function(angular){
 
 	"use strict";

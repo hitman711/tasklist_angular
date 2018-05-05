@@ -189,7 +189,6 @@
          <thead>
            <tr>
               <td>Action</td>
-              <td>Actor</td>
               <td>timestamp</td>
               <td>changes</td>
            </tr>
@@ -197,7 +196,6 @@
          <tbody>
            <tr ng-repeat="history in vm.task_retrieve.history">
               <td>{{history.action}}</td>
-              <td>{{history.actor}}</td>
               <td>{{history.timestamp}}</td>
               <td>{{history.changes | history_changes }}</td>
            </tr>
